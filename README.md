@@ -6,10 +6,10 @@ respectively, the largest and lowest number in that array/vector.
 ```javascript
 let min = function(list){
     return Math.min(...list);
-}
-
+};
 let max = function(list){
     return Math.max(...list);
+};
 ```
 
 7 kyu Find the divisors!
