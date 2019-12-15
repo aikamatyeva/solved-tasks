@@ -2,8 +2,7 @@
 8 kyu Total amount of points
 https://www.codewars.com/kata/total-amount-of-points/train/javascript
 Our football team finished the championship. 
-The result of each match look like "x:y". Results of all matches are r
-ecorded in the collection.
+The result of each match look like "x:y". Results of all matches are recorded in the collection.
 
 For example: ["3:1", "2:2", "0:1", ...]
 
