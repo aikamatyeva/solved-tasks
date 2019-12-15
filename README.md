@@ -1,4 +1,18 @@
 # solved-tasks
+
+7 kyu Find the divisors!
+https://www.codewars.com/kata/find-the-divisors/train/javascript
+Create a function named divisors/Divisors that takes an integer n > 1 and 
+returns an array with all of the integer's divisors(except for 1 and the number itself), from smallest to largest. 
+If the number is prime return the string '(integer) is prime' (null in C#) (use Either String a in Haskell and Result<Vec<u32>, String> in Rust).
+
+```javascript
+function divisors(n) {
+  let arr = []
+  for (let i = 2; i <= Math.floor(n / 2); ++i) if (n % i == 0) arr.push(i);
+  return arr.length ? arr : n + ' is prime'
+}
+```
 8 kyu Total amount of points
 https://www.codewars.com/kata/total-amount-of-points/train/javascript
 Our football team finished the championship. 
