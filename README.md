@@ -1,4 +1,16 @@
 # solved-tasks
+8 kyu Find Maximum and Minimum Values of a List
+https://www.codewars.com/kata/find-maximum-and-minimum-values-of-a-list/train/javascript
+Your task is to make two functions, max and min (maximum and minimum in PHP and Python) that take a(n) array/vector of integers list as input and outputs, 
+respectively, the largest and lowest number in that array/vector.
+```javascript
+let min = function(list){
+    return Math.min(...list);
+}
+
+let max = function(list){
+    return Math.max(...list);
+```
 
 7 kyu Find the divisors!
 https://www.codewars.com/kata/find-the-divisors/train/javascript
