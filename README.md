@@ -1,5 +1,53 @@
 # solved-tasks
 
+7 kyu Mumbling
+https://www.codewars.com/kata/mumbling/train/javascript
+This time no story, no theory. The examples below show you how to write function accum
+```javascript
+function accum(s) {
+	return s.split('').map((char, index) => {
+      let repeat = char.repeat(index + 1);
+      return (repeat.charAt(0).toUpperCase() +repeat.slice(1).toLowerCase())
+    }).join('-');
+}
+
+another one:
+function accum(s) {
+  let array = [];
+  for (i = 0; i < (s.length); i++) {
+    array.push(s.charAt(i).toUpperCase() + s.charAt(i).toLowerCase().repeat(i));
+  };
+  return array.join("-");
+}
+
+```
+
+8 kyu Regex count lowercase letters
+https://www.codewars.com/kata/regex-count-lowercase-letters/train/javascript
+Your task is simply to count the total number of lowercase letters in a string.
+```javascript
+function lowercaseCount(str){
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+     if (/[a-z]+/.test(str[i])){
+     count++;}
+  }  
+  return count;
+}
+```
+
+7 kyu Numbers to Letters
+https://www.codewars.com/kata/numbers-to-letters/train/javascript
+Given an array of numbers, you must return a string. The numbers correspond to the letters of the 
+alphabet in reverse order: a=26, z=1 etc. You should also account for '!', '?' and ' ' that are 
+represented by '27', '28' and '29' respectively.
+All inputs will be valid.
+```javascript
+function switcher(x){
+  return x.reduce((word, number) => `${word}${' ?!abcdefghijklmnopqrstuvwxyz'[29 - number]}`, '');
+}
+```
+
 8 kyu SpeedCode #2 - Array Madness
 https://www.codewars.com/kata/speedcode-number-2-array-madness/train/javascript
 Given two integer arrays a, b, both of length >= 1, create a program that returns true if the sum of the squares of each element 
