@@ -1,4 +1,155 @@
 # solved-tasks
+
+8 kyu SpeedCode #2 - Array Madness
+https://www.codewars.com/kata/speedcode-number-2-array-madness/train/javascript
+Given two integer arrays a, b, both of length >= 1, create a program that returns true if the sum of the squares of each element 
+in a is strictly greater than the sum of the cubes of each element in b.
+```javascript
+function arrayMadness(a, b) {
+  return a.reduce((total, num) => total + num ** 2, 0) > b.reduce((total, num) => total + num ** 3, 0);
+}
+```
+8 kyu Convert number to reversed array of digits
+https://www.codewars.com/kata/convert-number-to-reversed-array-of-digits/train/javascript
+```javascript
+function digitize(n) {
+  return Array.from(String(n), Number).reverse();
+}
+```
+
+7 kyu Train to remove duplicates from an array with filter()
+https://www.codewars.com/kata/train-to-remove-duplicates-from-an-array-with-filter/train/javascript
+In this kata your task is to remove all the duplicates from the array using a standart build-in method - Array.prototype.filter(); 
+return the array containing unique values only.
+```javascript
+function unique(arr) {
+  const nonDuplicates = arr.filter((el, i) => i === arr.indexOf(el));
+  return nonDuplicates;
+}
+```
+
+7 kyu Find Duplicates
+https://www.codewars.com/kata/find-duplicates/train/javascript
+451088% of 194897 of 1,589loickreitmann2 Issues Reported
+JavaScript
+Node v8.1.3
+VIM
+EMACS
+Instructions
+Output
+Past Solutions
+Given an array, find the duplicates in that array, and return a new array of those duplicates. T
+he elements of the returned array should appear in the order when they first appeared as duplicates.
+Note: numbers and their corresponding string representations should not be treated as duplicates (i.e., '1' !== 1).
+```javascript
+function duplicates(arr) {
+  const duplicates = arr.filter((el, i) => i !== arr.indexOf(el) && i === arr.lastIndexOf(el));
+  return duplicates;
+}
+```
+7 kyu Find how many times did a team from a given country win the Champions League?
+https://www.codewars.com/kata/find-how-many-times-did-a-team-from-a-given-country-win-the-champions-league/train/javascript
+Create a function that takes two arguments:
+1) An array of objects which feature the season, the team and the country of the Champions League winner.
+2) Country (as a string, for example, 'Portugal')
+You function should then return the number which represents the number of times a team from a given country has won. 
+Return 0 if there have been no wins.
+```javascript
+function countWins(winnerList, country) {
+  return  winnerList.filter(el => el.country == country).length;
+}
+example:
+const arr = [
+  { season: '1996–97', team: 'Borussia Dortmund', country: 'Germany' },
+  { season: '1997–98', team: 'Real Madrid', country: 'Spain' },
+  { season: '1998–99', team: 'Manchester United', country: 'England' },
+  { season: '1999–00', team: 'Real Madrid', country: 'Spain' },
+  { season: '2000–01', team: 'Bayern Munich', country: 'Germany' },
+  { season: '2001–02', team: 'Real Madrid', country: 'Spain' },
+  { season: '2002–03', team: 'Milan', country: 'Italy' },
+  { season: '2003–04', team: 'Porto', country: 'Portugal' },
+  { season: '2004–05', team: 'Liverpool', country: 'England' },
+  { season: '2005–06', team: 'Barcelona', country: 'Spain' },
+  { season: '2006–07', team: 'Milan', country: 'Italy' },
+  { season: '2007–08', team: 'Manchester United', country: 'England' },
+  { season: '2008–09', team: 'Barcelona', country: 'Spain' },
+  { season: '2009–10', team: 'Internazionale', country: 'Italy' },
+  { season: '2010–11', team: 'Barcelona', country: 'Spain' },
+  { season: '2011–12', team: 'Chelsea', country: 'England' },
+  { season: '2012–13', team: 'Bayern', country: 'Germany' },
+  { season: '2013–14', team: 'Real Madrid', country: 'Spain' },
+  { season: '2014–15', team: 'Barcelona', country: 'Spain' },
+  { season: '2015–16', team: 'Real Madrid', country: 'Spain' }
+];
+
+function countWins(winnerList, country) {
+  return  winnerList.filter(el => el.country == country).length
+}
+
+console.log(countWins(arr, 'Spain'));
+
+
+```
+6 kyu Array.diff
+https://www.codewars.com/kata/array-dot-diff/train/javascript
+Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+It should remove all values from list a, which are present in list b.
+
+array_diff([1,2],[1]) == [2]
+If a value is present in b, all of its occurrences must be removed from the other:
+
+array_diff([1,2,2,2,3],[2]) == [1,3]
+```javascript
+function array_diff(a, b) {
+  const arr = a.filter((el) => !b.includes(el));
+  return arr;
+}
+```
+7 kyu JavaScript Array Filter
+https://www.codewars.com/kata/javascript-array-filter/train/javascript
+JavaScript Arrays support a filter function (starting in JavaScript 1.6). 
+Use the filter functionality to complete the function given.
+
+The solution would work like the following:
+```javascript
+function getEvenNumbers(arr){
+  const arr2 = arr.filter((el, i) => el % 2 == 0);
+  return arr2;
+}
+```
+
+7 kyu filterEvenLengthWords
+https://www.codewars.com/kata/filterevenlengthwords
+Given an array of strings, "filterEvenLengthWords" returns an array containing only the elements of 
+the given array whose length is an even number.
+var output = filterEvenLengthWords(['word', 'words', 'word', 'words']);
+
+console.log(output); // --> ['word', 'word']
+```javascript
+function filterEvenLengthWords(arr) {
+  const arr2 = arr.filter((el, i) => el.length % 2 == 0);
+  return arr2;
+}
+```
+8 kyu Removing Elements
+https://www.codewars.com/kata/removing-elements
+Take an array and remove every second element out of that array. 
+Always keep the first element and start removing with the next element.
+```javascript
+function removeEveryOther(arr){
+ const arr2 = arr.filter((el, i) => i % 2 == 0);
+  return arr2;
+}
+```
+8 kyu Find numbers which are divisible by given number
+Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. 
+First argument is an array of numbers and the second is the divisor.
+   ```javascript
+function divisibleBy(arr, divisor){
+  const arr2 = arr.filter((el) => el % divisor === 0);
+  return arr2;
+}
+```
 8 kyu Find Maximum and Minimum Values of a List
 https://www.codewars.com/kata/find-maximum-and-minimum-values-of-a-list/train/javascript
 Your task is to make two functions, max and min (maximum and minimum in PHP and Python) that take a(n) array/vector of integers list as input and outputs, 
