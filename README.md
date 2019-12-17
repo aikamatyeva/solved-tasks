@@ -1,4 +1,157 @@
 # solved-tasks
+8 kyu Squash the bugs
+https://www.codewars.com/kata/squash-the-bugs/train/javascript
+Simple challenge - eliminate all bugs from the supplied code so that the code runs and outputs the 
+expected value. Output should be the length of the longest word, as a number.
+
+There will only be one 'longest' word.
+```javascript
+function findLongest(str) {
+  let spl = str.split(" ");
+  let longest = 0
+  for (let i = 0; i < spl.length; i++) {
+    if (spl[i].length > longest) {
+        longest = spl[i].length
+    }
+}  return longest;
+}
+```
+8 kyu Name Shuffler
+https://www.codewars.com/kata/name-shuffler/train/javascript
+```javascript
+function nameShuffler(str){
+  return str.split(' ').reverse().join(' ');
+}
+
+const arr = str.split(' ');
+return [arr[0], arr[1]] = [arr[1], arr[0]].join(' ');
+```
+7 kyu Highest and Lowest
+https://www.codewars.com/kata/highest-and-lowest/train/javascript
+```javascript
+function highAndLow(str){
+  const arr = str.split(' ').sort((a, b) => b - a);
+  return [arr[0], arr[arr.length - 1]].join(' ');
+}
+```
+8 kyu Exclamation marks series #2: Remove all exclamation marks from the end of sentence
+https://www.codewars.com/kata/exclamation-marks-series-number-2-remove-all-exclamation-marks-from-the-end-of-sentence/train/javascript
+Remove all exclamation marks from the end of sentence.
+```javascript
+function remove(s){
+  return s.replace(/!+$/g,"");
+}
+```
+Replace dot
+```javascript
+s.replace(/\./g,"-")
+```
+8 kyu Fake Binary
+https://www.codewars.com/kata/fake-binary/train/javascript
+Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. 
+Return the resulting string.
+```javascript
+function fakeBin(s){
+  return s.replace(/[1-4]/g, 0).replace(/[5-9]/g, 1);
+}
+```
+8 kyu Correct the mistakes of the character recognition software
+https://www.codewars.com/kata/correct-the-mistakes-of-the-character-recognition-software/train/javascript
+Character recognition software is widely used to digitise printed texts. Thus the texts can be edited, searched and stored on a computer.
+When documents (especially pretty old ones written with a typewriter), are digitised character recognition softwares often make mistakes.
+Your task is correct the errors in the digitised text. You only have to handle the following mistakes:
+S is misinterpreted as 5
+O is misinterpreted as 0
+I is misinterpreted as 1
+```javascript
+function correct(str){
+	return str.replace(/[5]/g, 'S').replace(/[0]/g, 'O').replace(/[1]/g, 'I');
+}
+```
+7 kyuComplementary DNA
+https://www.codewars.com/kata/complementary-dna/train/javascript
+```javascript
+function DNAStrand(dna){
+  return dna.replace(/A/g, 't').replace(/T/g, 'a').replace(/C/g, 'g').replace(/G/g, 'c').toUpperCase();
+}
+function DNAStrand(str) {
+    let res = '';
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == 'A') {
+            res += 'T';
+        } else if (str[i] == 'T') {
+            res += 'A';
+        } else if (str[i] == 'G') {
+            res += 'C';
+        } else if (str[i] == 'C') {
+            res += 'G';
+        } else {
+            res += str[i];
+        }
+    }
+    return res;
+}
+```
+7 kyu Credit Card Mask
+https://www.codewars.com/kata/credit-card-mask/train/javascript
+Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. 
+However, since someone could look over your shoulder, 
+you don't want that shown on your screen. Instead, we mask it.
+Your task is to write a function maskify, which changes all but the last four characters into '#'.
+```javascript
+function maskify(s) {
+  if(s.length <= 3) return s;
+  const sl = (s.slice(0, s.length - 4)).length;
+  let res = '';
+  for(let i = 0; i < sl; i++){
+    res+= s[i].replace(s[i], '#');
+  }
+  return res + s.slice(s.length -4);
+}
+
+```
+7 kyu Don't give me five!
+https://www.codewars.com/kata/dont-give-me-five/train/javascript
+In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. 
+The start and the end number are both inclusive!
+Examples:
+1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+4,17 -> 4,6,7,8,9,10,11,12,13,14,16,17 -> Result 12
+The result may contain fives. ;-)
+The start number will always be smaller than the end number. Both numbers can be also negative!
+
+I'm very curious for your solutions and the way you solve it. Maybe someone of you will find an easy pure mathematics solution.
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have also created other katas. Take a look if you enjoyed this kata!
+```javascript
+function dontGiveMeFive(start, end){
+  let count = 0;
+  for(let i = start; i <= end; i++){
+    if(!i.toString().includes(5)){
+      count++;}
+  }
+  return count;
+}
+```
+
+7 kyu Thinking & Testing : Something capitalized
+https://www.codewars.com/kata/thinking-and-testing-something-capitalized/train/javascript
+```javascript
+function testit(s){
+  if (s.length === 0) return s;
+  let arr = s.split(' ');
+  for (let i = 0; i < arr.length; i++) {
+    let str = arr[i];
+    if (str.length > 1) {
+        arr[i] = str.substring(0, str.length - 1) + str.substring(str.length - 1).toUpperCase();
+    } else {
+        arr[i] = str.toUpperCase();
+    }
+}  return arr.join(' ');
+}
+```
 
 7 kyu Mumbling
 https://www.codewars.com/kata/mumbling/train/javascript
