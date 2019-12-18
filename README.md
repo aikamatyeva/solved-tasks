@@ -1,4 +1,32 @@
 # solved-tasks
+8 kyu Get number from string
+https://www.codewars.com/kata/get-number-from-string/train/javascript
+Write a function which removes from string all non-digit characters and parse the remaining to number. E.g: "hell5o wor6ld" -> 56
+```javascript
+function getNumberFromString(s){
+  const res = s.split('').filter((el) => Number.isInteger(+el)).join('');
+  return +res.replace(/\b \b/g,'');(\b \b is to find all whitespaces)
+}
+
+function getNumberFromString(s) {
+   return +s.replace(/\D/g, "");
+}
+```
+8 kyu Regexp Basics - is it a digit?
+https://www.codewars.com/kata/regexp-basics-is-it-a-digit/train/javascript
+Implement String#digit? (in Java StringUtils.isDigit(String)), 
+which should return true if given object is a digit (0-9), false otherwise.
+```javascript
+ String.prototype.digit = function() {
+    return /^[0-9]$/.test(this);
+ };
+
+mine 
+String.prototype.digit = function() {
+       let a = this.replace(/\s/g)
+       return /\b\d\b/g.test(a) ? true : false;
+     };
+```
 7 kyu Check three and two
 https://www.codewars.com/kata/check-three-and-two/train/javascript
 Given an array with exactly 5 strings "a", "b" or "c" (chars in Java, characters in Fortran), 
