@@ -1,4 +1,22 @@
 # solved-tasks
+7 kyu Find min and max
+https://www.codewars.com/kata/find-min-and-max/train/javascript
+```javascript
+function getMinMax(s){
+  return [Math.min(...s), Math.max(...s)];
+};
+```
+7 kyu Get initials from person name
+https://www.codewars.com/kata/get-initials-from-person-name/train/javascript
+Write function toInitials returs initials for a given person name. E.g: "Bill Gates" -> "B. G."
+Note: initials should be separated with a space.
+```javascript
+function toInitials(name) {
+  let s = name.split(" ").map((n) => n[0]).join(". ");
+  return s+'.';
+}
+return s.replace(/([a-z])[a-z]+/gi, '$1.'); // others
+```
 8 kyu Get number from string
 https://www.codewars.com/kata/get-number-from-string/train/javascript
 Write a function which removes from string all non-digit characters and parse the remaining to number. E.g: "hell5o wor6ld" -> 56
