@@ -1,4 +1,174 @@
 # solved-tasks
+7 kyu Check three and two
+https://www.codewars.com/kata/check-three-and-two/train/javascript
+Given an array with exactly 5 strings "a", "b" or "c" (chars in Java, characters in Fortran), 
+check if the array contains three and two of the same values.
+
+Examples
+["a", "a", "a", "b", "b"] ==> true  // 3x "a" and 2x "b"
+["a", "b", "c", "b", "c"] ==> false // 1x "a", 2x "b" and 2x "c"
+["a", "a", "a", "a", "a"] ==> false // 5x "a"
+```javascript
+my version 
+function checkThreeAndTwo(arr) {
+  console.log(arr)
+  let a = 0;
+  let b = 0;
+  let c = 0;
+
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] == 'a'){
+      a++;
+    }
+    if(arr[i] == 'b'){
+      b++;
+    }
+    if(arr[i] == 'c'){
+      c++;
+    }
+  }
+
+  if ((a > 2 && b > 1) || (a > 1 && b > 2)){
+    return true;
+  } else if ((a > 1 && c > 2) || (a > 2 && c > 1)){
+    return true;
+  } else if ((b > 1 && c > 2) || (b > 2 && c > 1)){
+    return true;
+  }else {
+    return false;
+  }
+}
+
+LarOvch
+function checkThreeAndTwo(arr) {
+  let obj ={};
+  for (let i = 0; i < arr.length; i++){
+    if (obj[arr[i]]) obj[arr[i]] ++;
+    else obj[arr[i]] = 1;
+  }
+  for (let i in obj) {
+    if (obj[i] < 2 || obj[i] > 3) return false;
+  }
+  return true;
+}
+
+another way 
+function checkThreeAndTwo(arr) {
+  let a = 0;
+  let b = 0;
+  let c = 0;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] == 'a') a++;
+    if(arr[i] == 'b') b++;
+    if(arr[i] == 'c') c++;
+  }
+  return [a,b,c].includes(3) && [a,b,c].includes(2) ? true : false;
+}
+```
+7 kyu Make a function that does arithmetic!
+https://www.codewars.com/kata/make-a-function-that-does-arithmetic/train/javascript
+Given two numbers and an arithmetic operator (the name of it, as a string), 
+return the result of the two numbers having that operator used on them.
+a and b will both be positive integers, and a will always be the first number in the operation, 
+and b always the second.
+
+The four operators are "add", "subtract", "divide", "multiply".
+
+A few examples:
+
+arithmetic(5, 2, "add")      => returns 7
+arithmetic(5, 2, "subtract") => returns 3
+arithmetic(5, 2, "multiply") => returns 10
+arithmetic(5, 2, "divide")   => returns 2.5
+```javascript
+const arithmetic = (a, b, operator) => ({
+  'add'     : a + b,
+  'subtract': a - b,
+  'multiply': a * b,
+  'divide'  : a / b
+}[operator]);
+```
+```javascript
+function arithmetic(a, b, operator){
+  switch (operator) {
+  case 'add':
+    return (a + b);
+    break;
+  case 'subtract':
+    return (a - b);
+    break;
+  case 'multiply':
+    return (a * b);
+    break;
+  case 'divide':
+    return (a / b);
+    break;
+}
+}
+```
+
+7 kyu makeBackronym
+https://www.codewars.com/kata/makebackronym/train/javascript 
+back·ro·nym
+An acronym deliberately formed from a phrase whose initial letters spell out a particular word or words, 
+either to create a memorable name or as a fanciful explanation of a word's origin.
+"Biodiversity Serving Our Nation", or BISON
+(from https://en.oxforddictionaries.com/definition/backronym)
+Complete the function to create backronyms. Transform the given string (without spaces) to a backronym, using the preloaded dictionary and return a string of words, 
+separated with a single space (but no trailing spaces).
+The keys of the preloaded dictionary are uppercase letters A-Z and the values are predetermined words, for example:
+dict["P"] == "perfect"
+```javascript
+function makeBackronym (str){
+  return str.toUpperCase().split('').map(word => dict[word]).join(' ');
+};
+
+var dict = {
+  A: 'awesome',
+  B: 'beautiful',
+  C: 'confident',
+  D: 'disturbing',
+  E: 'eager',
+  F: 'fantastic',
+  G: 'gregarious',
+  H: 'hippy',
+  I: 'ingestable',
+  J: 'joke',
+  K: 'klingon',
+  L: 'literal',
+  M: 'mustache',
+  N: 'newtonian',
+  O: 'oscillating',
+  P: 'perfect',
+  Q: 'queen',
+  R: 'rant',
+  S: 'stylish',
+  T: 'turn',
+  U: 'underlying',
+  V: 'volcano',
+  W: 'weird',
+  X: 'xylophone',
+  Y: 'yogic',
+  Z: 'zero',
+};
+
+function makeBackronym (str){
+  return str.toUpperCase().split('').map(word => dict[word]).join(' ')
+};
+```
+8 kyu Duck Duck Goose
+https://www.codewars.com/kata/duck-duck-goose/train/javascript
+Task: Given an array of Player objects (an array of associative arrays in PHP) and an index (1-based), 
+return the name of the chosen Player(name is a property of Player objects, e.g Player.name)
+Example:
+duck_duck_goose([a, b, c, d], 1) should return a.name
+duck_duck_goose([a, b, c, d], 5) should return a.name
+duck_duck_goose([a, b, c, d], 4) should return d.name
+```javascript
+function duckDuckGoose(players, goose) {
+  return players[(goose - 1) % players.length].name;
+}
+```
 8 kyu Squash the bugs
 https://www.codewars.com/kata/squash-the-bugs/train/javascript
 Simple challenge - eliminate all bugs from the supplied code so that the code runs and outputs the 
