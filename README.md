@@ -1,4 +1,74 @@
 # solved-tasks
+7 kyu Simple Fun #37: House Numbers Sum
+https://www.codewars.com/kata/simple-fun-number-37-house-numbers-sum/train/javascript
+At some point during the walk the boy encounters a house with number 0 written on it, which surprises him so much 
+that he stops adding numbers to his total right after seeing that house.
+For the given sequence of houses determine the sum that the boy will get. It is guaranteed that there will 
+always be at least one 0 house on the path.
+```javascript
+function houseNumbersSum(n) {
+  let sum = 0;
+  for(let i = 0; i < n.length; i++){
+    if(n[i] > 0) sum+= n[i]
+    if(n[i] == 0) break;}
+  return sum;
+}
+```
+
+Filter out the vowels
+https://www.codewars.com/kata/filter-out-the-vowels/train/javascript
+```javascript
+function vowelFilter (a) {
+  return a.join("").replace(/[aeiou]/gi, '').split('');
+};
+
+function vowelFilter (a) {
+  return a.filter(i => !"aeiou".includes(i));}
+```
+8 kyu Is there a vowel in there?
+https://www.codewars.com/kata/is-there-a-vowel-in-there/train/javascript
+Given an array of numbers, check if any of the numbers are the character codes for lower case vowels (a, e, i, o, u).
+If they are, change the array value to a string of that vowel.
+Return the resulting array.
+
+```javascript
+others:
+a.map(x => /[aeiou]/.test(String.fromCharCode(x)) ? String.fromCharCode(x) : x);
+mine:
+function isVow(a){
+  const a1 = ['a', 'e', 'i', 'o', 'u'];
+  for(let i = 0; i < a.length; i++){
+    if(a1.includes(String.fromCharCode(a[i]))){
+      a[i]= String.fromCharCode(a[i]);}}
+  return a;
+}
+```
+7 kyu Sort by Last Char
+https://www.codewars.com/kata/sort-by-last-char/train/javascript
+Given a string of words (x), you need to return an array of the words, 
+sorted alphabetically by the final character in each.
+If two words have the same last letter, they returned array should show them in the order 
+they appeared in the given string.
+All inputs will be valid.
+```javascript
+function last(s){
+  return s.split(' ').sort((a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1));
+}
+```
+
+7 kyu Summing a number's digits
+https://www.codewars.com/kata/summing-a-numbers-digits/train/javascript
+Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of 
+the number's decimal digits. For example:
+  sumDigits(10);  // Returns 1
+  sumDigits(99);  // Returns 18
+  sumDigits(-32); // Returns 5
+```javascript
+function sumDigits(n) {
+  return Math.abs(n).toString().split('').map(Number).reduce((acc, curr) => acc + curr);
+}
+
+```
 7 kyu Find min and max
 https://www.codewars.com/kata/find-min-and-max/train/javascript
 ```javascript
@@ -8,7 +78,7 @@ function getMinMax(s){
 ```
 7 kyu Get initials from person name
 https://www.codewars.com/kata/get-initials-from-person-name/train/javascript
-Write function toInitials returs initials for a given person name. E.g: "Bill Gates" -> "B. G."
+Write function toInitials returns initials for a given person name. E.g: "Bill Gates" -> "B. G."
 Note: initials should be separated with a space.
 ```javascript
 function toInitials(name) {
