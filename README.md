@@ -1,4 +1,32 @@
 # solved-tasks
+
+8 kyu Rock Paper Scissors!
+https://www.codewars.com/kata/rock-paper-scissors/train/javascript
+Let's play! You have to return which player won! In case of a draw return Draw!.
+
+```javascript
+const rps = (p1, p2) => {
+  let map = {
+    'rock': 'scissors',
+    'scissors': 'paper',
+    'paper': 'rock'
+  };
+  
+  if (p1 == p2) {
+    return 'Draw!';
+  } else {
+    return 'Player ' + (map[p1] == p2 ? 1 : 2) + ' won!';
+  }
+};
+
+const rps = (p1, p2) => {
+  if (p1 === p2) return 'Draw!'
+  if ((p1 === 'scissors' && p2 === 'paper') || (p1 === 'rock' && p2 === 'scissors') ||(p1 === 'paper' && p2 === 'rock'))
+    return 'Player 1 won!'
+  if ((p2 === 'scissors' && p1 === 'paper') ||(p2 === 'rock' && p1 === 'scissors') ||(p2 === 'paper' && p1 === 'rock'))
+    return 'Player 2 won!'
+}
+```
 7 kyu Simple Fun #37: House Numbers Sum
 https://www.codewars.com/kata/simple-fun-number-37-house-numbers-sum/train/javascript
 At some point during the walk the boy encounters a house with number 0 written on it, which surprises him so much 
