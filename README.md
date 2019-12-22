@@ -1,5 +1,90 @@
 # solved-tasks
+7 kyu Can Santa save Christmas?
+https://www.codewars.com/kata/can-santa-save-christmas/train/javascript
+Your Task:
+You will get an array as input with time durations as string in the following format:
+"hh:mm:ss"
+Each duration is a present Santa has to distribute.
+Return true or false whether he can do it in 24 hours or not.
+```javascript
+function determineTime(durations){
+  let hours=0;
+  let min=0;
+  let sec=0;
+  durations.map(el => el.split(':').map((e,i) => i===0 ? hours+= e * 1 : i===1 ? min += e * 1 : sec += e * 1));
+  min = min + sec/60;
+  hours = hours + min/60;
+  return hours <= 24;
+}
+```
+7 kyu Every possible sum of two digits
+https://www.codewars.com/kata/every-possible-sum-of-two-digits/train/javascript
+Given a long number, return all the possible sum of two digits of it.
+For example, 12345: all possible sum of two digits from that number are:
+[ 1 + 2, 1 + 3, 1 + 4, 1 + 5, 2 + 3, 2 + 4, 2 + 5, 3 + 4, 3 + 5, 4 + 5 ]
+Therefore the result must be:
+[ 3, 4, 5, 6, 5, 6, 7, 7, 8, 9 ]
+```javascript
+function digits(n){
+  const num = n.toString().split('').map(el => el * 1);
+  let res = [];
+  for(let i = 0; i < num.length; i++){
+     for(let j=1+i; j < num.length; j++){
+       res.push(num[i]+num[j])
+       }
+    }
+     return res;
+}
+```
 
+8 kyu No zeros for heros
+https://www.codewars.com/kata/no-zeros-for-heros/train/javascript
+```java
+public static int noBoringZeros(int n) {
+        if(n == 0) return 0;
+        return Integer.parseInt(Integer.toString(n).replaceAll("0*$", ""));
+    }
+```
+```javascript
+function noBoringZeros(n) {
+  return +(n.toString().replace(/0+$/, ''));
+}
+```
+7 kyu Formatting decimal places #1
+https://www.codewars.com/kata/5641c3f809bf31f008000042/solutions/java
+```java
+public class Numbers {
+  public static double twoDecimalPlaces(double num) {
+    return (int)(num * 100) / 100.0;
+    }
+}
+```
+8 kyu Holiday VIII - Duty Free
+https://www.codewars.com/kata/57e92e91b63b6cbac20001e5/solutions/java
+```java
+public static int dutyFree(int normPrice, int discount, int hol) {
+        double percent = ((double)discount / 100);
+        return (int)Math.floor(hol / (normPrice * percent));
+    }
+```
+
+7 kyu Squares sequence
+https://www.codewars.com/kata/squares-sequence/train/javascript
+Complete the function that returns an array of length n, starting with the given number x and the squares of the previous number. 
+If n is negative or zero, return an empty array/list.
+Examples
+2, 5  -->  [2, 4, 16, 256, 65536]
+3, 3  -->  [3, 9, 81]
+```javascript
+function squares(x, n) {
+  let res = [];
+  for(let i=0; i<n; i++){
+    res.push(x);
+    x*= x;
+  }
+  return res;
+}
+```
 
 8 kyu Rock Paper Scissors!
 https://www.codewars.com/kata/rock-paper-scissors/train/javascript
