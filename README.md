@@ -1,4 +1,28 @@
 # solved-tasks
+
+
+8 kyu Sort and Star
+https://www.codewars.com/kata/sort-and-star/train/javascript
+You will be given an vector of string(s). You must sort it alphabetically (case-sensitive!!) and then return the first value.
+The returned value must be a string, and have "***" between each of its letters.
+You should not remove or add elements from/to the array.
+```javascript
+mine:
+function twoSort(arr) {
+  let a = arr.sort();
+  let b = arr[0];
+  let s = "";
+  for(let i = 0; i < b.length - 1; i++){
+    s += b[i] + "***"
+  }
+  return s + b[b.length -1];
+}
+others:
+function twoSort(s) {
+  return s.sort()[0].split('').join('***')
+}
+```
+
 7 kyu Can Santa save Christmas?
 https://www.codewars.com/kata/can-santa-save-christmas/train/javascript
 Your Task:
