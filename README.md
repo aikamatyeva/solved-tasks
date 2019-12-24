@@ -1,6 +1,34 @@
 # solved-tasks
+7 kyu Sum even numbers
+https://www.codewars.com/kata/sum-even-numbers/train/javascript
+Write a function named sumEvenNumbers, taking an array of integers as single parameter. Your function must return the sum of the even values of this array.
+For example, considering this input value : [4,3,1,2,5,10,6,7,9,8], then your function should return 30 (because 4 + 2 + 10 + 6 + 8 = 30).
+```javascript
+function sumEvenNumbers(arr) {
+  return arr.filter((el) => el % 2 === 0).reduce((el, i) => el + i);
+}
 
+```
+8 kyu Merge two sorted arrays into one
+https://www.codewars.com/kata/merge-two-sorted-arrays-into-one/train/javascript
+You are given two sorted arrays that contain only integers. Your task is to find a way to merge them into a single one, sorted in ascending order. Complete the function mergeArrays(arr1, arr2), 
+where arr1 and arr2 are the original sorted arrays.
+You don't need to worry about validation, since arr1 and arr2 must be arrays with 0 or more Integers. If both arr1 and arr2 are empty, then just return an empty array.
+Note: arr1 and arr2 may be sorted in different orders. Also arr1 and arr2 may have same integers. Remove duplicated in the returned result.
+```javascript
+mine
+function mergeArrays(arr1, arr2) {
+  let arr3 = arr1.concat(arr2);
+  return arr3.filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b);
+}
+let unique = [...new Set(arr1.concat(arr2))]; 
+console.log(unique.sort((a, b) => a - b));
 
+other's 
+function mergeArrays(arr1, arr2) {
+  return Array.from(new Set(arr1.concat(arr2).sort((a,b) => (a-b))));
+}
+```
 8 kyu Sort and Star
 https://www.codewars.com/kata/sort-and-star/train/javascript
 You will be given an vector of string(s). You must sort it alphabetically (case-sensitive!!) and then return the first value.
