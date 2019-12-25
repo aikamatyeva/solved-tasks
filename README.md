@@ -1,4 +1,45 @@
 # solved-tasks
+
+7 kyu Santa's Naughty List
+https://www.codewars.com/kata/santas-naughty-list/train/javascript
+Christmas is coming, and Santa has a long list to go through, to find who deserves presents for the big day. Go through a list of children, and return a list containing every child who appeared on Santa's list. Do not add any child more than once. Output should be sorted.
+Comparison should be case sensitive and the returned list should contain only one copy of each name: "Sam" and "sam" are different, but "sAm" and "sAm" are not.
+```javascript
+function findChildren(sl, chd) {
+ return  chd.filter( (el, i) => sl.includes(el) && chd.indexOf(el) === i ).sort();
+}
+```
+6 kyu Sum of Two Integers
+https://www.codewars.com/kata/sum-of-two-integers/train/javascript
+Task
+Given Two integers a , b , find The sum of them , BUT You are not allowed to use the operators + and -
+```javascript
+function add(x, y){
+  if (y == 0) 
+        return x; 
+    else
+        return add( x ^ y, (x & y) << 1);
+}
+```
+7 kyu Square Every Digit
+https://www.codewars.com/kata/square-every-digit/train/javascript
+Welcome. In this kata, you are asked to square every digit of a number.
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+Note: The function accepts an integer and returns an integer
+```javascript
+function squareDigits(num){
+  return +(num.toString().split("").map(el => +el * el).join(""));
+}
+```
+7 kyu How many animals are there?
+https://www.codewars.com/kata/how-many-animals-are-there/train/javascript
+From a sentence, deduce the total number of animals.
+```javascript
+function countAnimals(str) {
+  if(!/\d/g.test(str)) return 0;
+  return str.match(/\d+/g).map(Number).reduce((el, i) => el + i);
+}
+```
 7 kyu Sum even numbers
 https://www.codewars.com/kata/sum-even-numbers/train/javascript
 Write a function named sumEvenNumbers, taking an array of integers as single parameter. Your function must return the sum of the even values of this array.
