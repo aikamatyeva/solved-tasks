@@ -1,5 +1,61 @@
 # solved-tasks
 
+count vowels
+```javascript
+s.match(/[aeiouAEIOU]/g).length
+```
+7 kyu Shortest Word
+https://www.codewars.com/kata/shortest-word/train/javascript
+Simple, given a string of words, return the length of the shortest word(s).
+String will never be empty and you do not need to account for different data types.
+```javascript
+function findShort(s){
+  return Math.min(...s.split(' ').map(({ length }) => length));
+}
+```
+6 kyu Counting Duplicates
+https://www.codewars.com/kata/counting-duplicates/train/javascript
+Count the number of Duplicates
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. 
+The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+Example
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+"indivisibility" -> 1 # 'i' occurs six times
+"Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+"aA11" -> 2 # 'a' and '1'
+"ABBA" -> 2 # 'A' and 'B' each occur twice
+```javascript
+mine:
+function duplicateCount(s){
+  let count = {};
+  s.toLowerCase().split('').forEach(function(i) { count[i] = (count[i]||0) + 1;});
+  let c = 0;   
+  for (let prop in count) {
+    if(count[prop] > 1) c++;
+  }
+  return c;
+}
+other's:
+function duplicateCount(text){
+  return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+}
+```
+7 kyu Sum of digits
+https://www.codewars.com/kata/sum-of-digits/javascript
+It involves implementing a program that sums the digits of a non-negative integer. For example, the sum of 3433 digits is 13.
+Digits can be a number or a string, and you should control it is no undefined and return an empty string.
+To give you a little more excitement, the program will not only write the result of the sum, but also write all the sums used: 3 + 4 + 3 + 3 = 13.
+```javascript
+function sum(n) {
+ if(n === undefined) return '';
+ let sum = n.toString().split('').reduce((el, i) => parseInt(el) + parseInt(i));
+ let str = n.toString().split('').join(' + ');
+ return str + " = " + num;
+}
+```
+
 7 kyu Santa's Naughty List
 https://www.codewars.com/kata/santas-naughty-list/train/javascript
 Christmas is coming, and Santa has a long list to go through, to find who deserves presents for the big day. Go through a list of children, and return a list containing every child who appeared on Santa's list. Do not add any child more than once. Output should be sorted.
